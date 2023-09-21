@@ -7,19 +7,47 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 
+import java.util.InputMismatchException;
+
 public class MainActivity extends AppCompatActivity {
+    EditText input1;
+    EditText input2;
 
-    public void addClicked(View view){
-        EditText input1 = (EditText) findViewById(R.id.input1);
-        EditText input2 = (EditText) findViewById(R.id.input2);
-        goToActivity(input1.getText().toString(), input2.getText().toString());
-
+    public void setInputs(View view){
+        input1 = (EditText) findViewById(R.id.input1);
+        input2 = (EditText) findViewById(R.id.input2);
     }
 
-    public void goToActivity(String s, String b){
+    public void addClicked(View view){
+        setInputs(view);
+        int result = Integer.parseInt(input1.getText().toString()) + Integer.parseInt(input2.getText().toString());
+        goToActivity(String.valueOf(result));
+    }
+
+    public void subtractClicked(View view){
+        setInputs(view);
+        int result = Integer.parseInt(input1.getText().toString()) - Integer.parseInt(input2.getText().toString());
+        goToActivity(String.valueOf(result));
+    }
+
+    public void multiplyClicked(View view){
+        setInputs(view);
+        int result = Integer.parseInt(input1.getText().toString()) * Integer.parseInt(input2.getText().toString());
+        goToActivity(String.valueOf(result));
+    }
+
+    public void divideClicked(View view){
+        setInputs(view);
+        int result = Integer.parseInt(input1.getText().toString()) / Integer.parseInt(input2.getText().toString());
+        goToActivity(String.valueOf(result));
+    }
+
+
+
+
+    public void goToActivity(String s){
         Intent intent = new Intent(this, resultScreen.class);
         intent.putExtra("input1", s);
-        intent.putExtra("input2", b);
         startActivity(intent);
     }
 

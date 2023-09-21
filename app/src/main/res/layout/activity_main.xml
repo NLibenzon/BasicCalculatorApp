@@ -10,9 +10,11 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="34dp"
+        android:layout_marginBottom="218dp"
         android:text="Calculator"
         android:textSize="26sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
@@ -26,7 +28,7 @@
         android:layout_marginTop="70dp"
         android:ems="10"
         android:inputType="text"
-        android:text="Name"
+        android:hint="Enter first number"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -36,13 +38,57 @@
         android:id="@+id/input2"
         android:layout_width="212dp"
         android:layout_height="62dp"
-        android:layout_marginTop="56dp"
+        android:layout_marginTop="24dp"
         android:ems="10"
         android:inputType="text"
-        android:text="Name"
+        android:hint="Enter second number"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/input1" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="409dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/input1" />
+        app:layout_constraintTop_toBottomOf="@+id/input2">
+
+        <Button
+            android:id="@+id/add"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="addClicked"
+            android:text="+" />
+
+        <Button
+            android:id="@+id/subtract"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="subtractClicked"
+            android:text="-" />
+
+        <Button
+            android:id="@+id/multiply"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="multiplyClicked"
+            android:text="*" />
+
+        <Button
+            android:id="@+id/divide"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="divideClicked"
+            android:text="/" />
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

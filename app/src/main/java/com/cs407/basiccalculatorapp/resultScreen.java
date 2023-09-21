@@ -4,11 +4,18 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 
 public class resultScreen extends AppCompatActivity {
 
-    TextView textView;
+
+    public void backClicked(View view){
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+    }
+
+        TextView textView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -16,8 +23,8 @@ public class resultScreen extends AppCompatActivity {
 
         textView=(TextView) findViewById(R.id.result);
         Intent intent = getIntent();
-        String str=intent.getStringExtra("message");
-        textView.setText("Hello "+str);
+        String str=intent.getStringExtra("input");
+        textView.setText(str);
     }
 
 
